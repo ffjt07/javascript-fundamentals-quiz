@@ -2,41 +2,64 @@
 :root {
     --buttonBord: navy;
     --buttonBack: rgb(11, 68, 87);
-    --marginBase: 1.5rem;
+    --marginBase: 15px;
     --buttonHover: blue;
     --buttonFontCol: white;
 }
 
 
 /* Universal Here */
-* {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* Elements Here */
-html {
-    font-size: 62.5%;
-}
-
 body {
-    line-height: 1.5;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    font-size: 1.8rem;
+    font-size: 18px;
     margin: var(--marginBase);
 }
 
 section {
-    display: flex;
-    border: solid black;
-    height: 50rem;
-    width: 92rem;
-    margin: 9rem auto;
+    margin: 0 auto;
+    width: 66%;
+    justify-content: center;
 }
 
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+button {
+    background-color: var(--buttonBack);
+    border-radius: var(--marginBase);
+    color: var(--buttonFontCol);
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 16px;
+    max-width: 255px;
+    padding: 20px 52px;
+    text-align: center;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin: 0.6em auto;
+    display: block;
+}
+
+/* Classes Here */
 .score {
     border: solid var(--buttonBord);
     border-radius: var(--marginBase);
@@ -45,10 +68,17 @@ section {
     padding: 0.5rem;
 }
 
+/* IDs Here */
+
+#quiz {
+    display: none;
+}
+
+/* Pseudo Here*/
 .score:hover {
     background-color: var(--buttonHover);    
 }
 
-.score:active {
-    font-size: 1.6rem;
+button:hover {
+    background-color: var(--buttonHover);
 }
