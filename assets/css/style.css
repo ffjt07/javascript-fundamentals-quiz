@@ -76,6 +76,7 @@ button {
 
 /* Pseudo Here*/
 .score:hover {
+    cursor: pointer;
     background-color: var(--buttonHover);    
 }
 
