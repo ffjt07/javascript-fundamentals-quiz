@@ -1,0 +1,19 @@
+/* Root Here */
+:root {
+    --marginBase: 1.5rem;
+}
+
+
+/* Universal Here */
+* {
+    box-sizing: border-box;
+}
+
+/* Elements Here */
+html {
+    font-size: 62.5%;
+}
+
+header {
+    margin: var(--marginBase);
+}
