@@ -1,6 +1,10 @@
 /* Root Here */
 :root {
+    --buttonBord: navy;
+    --buttonBack: rgb(11, 68, 87);
     --marginBase: 1.5rem;
+    --buttonHover: blue;
+    --buttonFontCol: white;
 }
 
 
@@ -26,6 +30,7 @@ header {
 }
 
 section {
+    display: flex;
     border: solid black;
     height: 50rem;
     width: 92rem;
@@ -33,15 +38,15 @@ section {
 }
 
 .score {
-    border: solid navy;
+    border: solid var(--buttonBord);
     border-radius: var(--marginBase);
-    background-color: rgb(11, 68, 87);
-    color: white;
+    background-color: var(--buttonBack);
+    color: var(--buttonFontCol);
     padding: 0.5rem;
 }
 
 .score:hover {
-    background-color: blue;    
+    background-color: var(--buttonHover);    
 }
 
 .score:active {
