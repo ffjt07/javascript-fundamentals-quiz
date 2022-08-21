@@ -15,5 +15,20 @@ html {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
     margin: var(--marginBase);
+}
+
+.score {
+    border: solid navy;
+    border-radius: var(--marginBase);
+    background-color: rgb(11, 68, 87);
+    color: white;
+    padding: 0.5rem;
+}
+
+.score:hover {
+    background-color: blue;    
 }
