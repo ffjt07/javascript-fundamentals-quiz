@@ -21,6 +21,13 @@ header {
     margin: var(--marginBase);
 }
 
+section {
+    border: solid black;
+    height: 50rem;
+    width: 92rem;
+    margin: 9rem auto;
+}
+
 .score {
     border: solid navy;
     border-radius: var(--marginBase);
@@ -31,4 +38,8 @@ header {
 
 .score:hover {
     background-color: blue;    
+}
+
+.score:active {
+    font-size: 1.6rem;
 }
