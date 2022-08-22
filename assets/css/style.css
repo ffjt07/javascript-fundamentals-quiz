@@ -85,6 +85,7 @@ button {
 #high-score-input {
     display: none;
 }
+
 /* Pseudo Here*/
 .score:hover {
     cursor: pointer;

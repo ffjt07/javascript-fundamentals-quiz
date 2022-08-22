@@ -12,6 +12,7 @@ var timeLeft = document.querySelector("#time-left")
 var hideBegin = document.querySelector(".begin")
 var highScoreButton = document.querySelector(".score")
 var hideHs = document.querySelector("#high-score-display")
+var rightWrong = document.querySelector("#right")
 
 // Global Variables
 var timer;
