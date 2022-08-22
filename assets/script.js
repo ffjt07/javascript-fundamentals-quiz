@@ -2,12 +2,12 @@
 var startButton = document.querySelector("#start")
 var backButton = document.querySelector("#back")
 var showQuiz = document.querySelector("#quiz")
-var questionDisp = document.querySelector("#question")
+var questionH = document.querySelector("#question")
 var answerList = document.querySelector("#answer-list")
-var choice1 = document.querySelector("#1")
-var choice2 = document.querySelector("#2")
-var choice3 = document.querySelector("#3")
-var choice4 = document.querySelector("#4")
+var choice1 = document.querySelector("#one")
+var choice2 = document.querySelector("#two")
+var choice3 = document.querySelector("#three")
+var choice4 = document.querySelector("#four")
 var timeLeft = document.querySelector("#time-left")
 var hideBegin = document.querySelector(".begin")
 var highScoreButton = document.querySelector(".score")
@@ -19,7 +19,7 @@ var timerCount;
 var quizAnswer;
 
 // Arrays
-var questionAnswer = [{
+var questionList = [{
     question: "What symbols are used to create an array?",
     choice1: "Parentheses",
     choice2: "Quotes",
@@ -52,12 +52,26 @@ var questionAnswer = [{
     rightAnswer: "2"    
     }
 ]
+
+var lastQuestion = questionList.length - 1;
+var currentQuestion = 0;
 // Functions
 function startQuiz () {
     timerCount = 75;
     timeLeft.textContent = timerCount
     hideBegin.setAttribute("style", "display: none");
     startTimer();
+    questionDisplay();
+}
+
+function questionDisplay () {
+    showQuiz.setAttribute("style", "display: block")
+    var questions = questionList[currentQuestion];
+    questionH.textContent = questions.question;
+    choice1.textContent = questions.choice1;
+    choice2.textContent = questions.choice2;
+    choice3.textContent = questions.choice3;
+    choice4.textContent = questions.choice4;
 }
 
 function startTimer () {

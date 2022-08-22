@@ -42,6 +42,10 @@ p {
     text-align: center;
 }
 
+li {
+    list-style: none;
+}
+
 button {
     background-color: var(--buttonBack);
     border-radius: var(--marginBase);
@@ -90,3 +94,4 @@ button {
 button:hover {
     background-color: var(--buttonHover);
 }
+
