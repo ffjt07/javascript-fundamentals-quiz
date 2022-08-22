@@ -25,7 +25,7 @@ var questionList = [{
     choice2: "Quotes",
     choice3: "Square Brackets",
     choice4: "Curly Braces",
-    rightAnswer: "3"
+    rightAnswer: "choice3"
     },
     {
     question: "What symbols are used to create a string?",
@@ -33,7 +33,7 @@ var questionList = [{
     choice2: "Square Brackets",
     choice3: "Curly Braces",
     choice4: "Quotes",
-    rightAnswer: "4"
+    rightAnswer: "choice4"
     },
     {
     question: "The condition in an if/else statement is enclosed by __",
@@ -41,7 +41,7 @@ var questionList = [{
     choice2: "Quotes",
     choice3: "Curly Braces",
     choice4: "Square Brackets",
-    rightAnswer: "1"
+    rightAnswer: "choice1"
     },
     {
     question: "The symbols used that surround the function criteria are __",
@@ -49,7 +49,7 @@ var questionList = [{
     choice2: "Curly Braces",
     choice3: "Quotes",
     choice4: "Parentheses",
-    rightAnswer: "2"    
+    rightAnswer: "choice2"    
     }
 ]
 
@@ -72,6 +72,26 @@ function questionDisplay () {
     choice2.textContent = questions.choice2;
     choice3.textContent = questions.choice3;
     choice4.textContent = questions.choice4;
+}
+
+function checkAnswer (event) {
+    if (event.target.matches("button"))
+
+        if (event.target.textContent == questionList[currentQuestion].rightAnswer) {
+            nextQuestion ();
+        }
+        else {
+            timerCount-1500
+            nextQuestion ();
+        }
+}
+    
+
+function nextQuestion () {
+    if (currentQuestion < lastQuestion) {
+        currentQuestion++;
+        questionDisplay();
+    }
 }
 
 function startTimer () {
@@ -102,3 +122,4 @@ function backStart () {
 startButton.addEventListener("click", startQuiz)
 highScoreButton.addEventListener("click", highScoreDisp)
 backButton.addEventListener("click", backStart)
+answerList.addEventListener("click", checkAnswer)
