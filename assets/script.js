@@ -9,10 +9,43 @@ var hideHs = document.querySelector("#high-score-display")
 var startButton = document.querySelector("#start")
 
 // Global Variables
-var question = ""
 var timer;
 var timerCount;
+var quizAnswer;
 
+// Arrays
+var questionAnswer = [{
+    question: "What sybols are used to create an array?",
+    choice1: "Parentheses",
+    choice2: "Quotes",
+    choice3: "Square Brackets",
+    choice4: "Curly Braces",
+    rightAnswer: "Square Brackets"
+    },
+    {
+    question: "What sybols are used to create an array?",
+    choice1: "Parentheses",
+    choice2: "Quotes",
+    choice3: "Square Brackets",
+    choice4: "Curly Braces",
+    rightAnswer: "Square Brackets"
+    },
+    {
+    question: "What sybols are used to create an array?",
+    choice1: "Parentheses",
+    choice2: "Quotes",
+    choice3: "Square Brackets",
+    choice4: "Curly Braces",
+    rightAnswer: "Square Brackets"
+    },
+    {
+    question: "What sybols are used to create an array?",
+    choice1: "Parentheses",
+    choice2: "Quotes",
+    choice3: "Square Brackets",
+    choice4: "Curly Braces",
+    rightAnswer: "Square Brackets"    
+    }]
 // Functions
 function startQuiz () {
     timerCount = 75;
@@ -34,8 +67,10 @@ function startTimer () {
 function highScoreDisp() {
     hideBegin.setAttribute("style", "display: none")
     showQuiz.setAttribute("style", "display: none")
-    hideHs.setAttribute("style", "display: contents")
+    // hideHs.setAttribute("style", "display: contents")
 }
 
+
+// Event Listeners
 startButton.addEventListener("click", startQuiz)
 highScoreButton.addEventListener("click", highScoreDisp)

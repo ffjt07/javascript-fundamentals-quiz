@@ -74,10 +74,13 @@ button {
     display: none;
 }
 
-#high-score {
+#high-score-display {
     display: none;
 }
 
+#high-score-input {
+    display: none;
+}
 /* Pseudo Here*/
 .score:hover {
     cursor: pointer;
