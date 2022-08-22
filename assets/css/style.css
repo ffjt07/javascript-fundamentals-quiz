@@ -98,6 +98,11 @@ input {
     display: none;
 }
 
+#high-score-display ul {
+    display: flex;
+    justify-content: center;
+}
+
 /* Pseudo Here*/
 .score:hover {
     cursor: pointer;
