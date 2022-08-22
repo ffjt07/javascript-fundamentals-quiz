@@ -23,29 +23,30 @@ var questionAnswer = [{
     rightAnswer: "Square Brackets"
     },
     {
-    question: "What sybols are used to create an array?",
+    question: "What sybols are used to create a string?",
     choice1: "Parentheses",
-    choice2: "Quotes",
-    choice3: "Square Brackets",
-    choice4: "Curly Braces",
-    rightAnswer: "Square Brackets"
+    choice2: "Square Brackets",
+    choice3: "Curly Braces",
+    choice4: "Quotes",
+    rightAnswer: "Quotes"
     },
     {
-    question: "What sybols are used to create an array?",
-    choice1: "Parentheses",
+    question: "The condition in an if/else statement is enclosed by __",
+    choice1: "Square Brackets",
     choice2: "Quotes",
-    choice3: "Square Brackets",
+    choice3: "Parentheses",
     choice4: "Curly Braces",
-    rightAnswer: "Square Brackets"
+    rightAnswer: "Parentheses"
     },
     {
-    question: "What sybols are used to create an array?",
-    choice1: "Parentheses",
-    choice2: "Quotes",
-    choice3: "Square Brackets",
-    choice4: "Curly Braces",
-    rightAnswer: "Square Brackets"    
-    }]
+    question: "The symbols used that surround the function criteria are __",
+    choice1: "Square Brackets",
+    choice2: "Curly Braces",
+    choice3: "Quotes",
+    choice4: "Parentheses",
+    rightAnswer: "Curly Braces"    
+    }
+]
 // Functions
 function startQuiz () {
     timerCount = 75;
@@ -67,7 +68,7 @@ function startTimer () {
 function highScoreDisp() {
     hideBegin.setAttribute("style", "display: none")
     showQuiz.setAttribute("style", "display: none")
-    // hideHs.setAttribute("style", "display: contents")
+    hideHs.setAttribute("style", "display: contents")
 }
 
 
