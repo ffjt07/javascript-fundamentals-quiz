@@ -1,6 +1,6 @@
 // Query Selectors of the sections in HTML
 var startButton = document.querySelector("#start")
-var backButton = document.querySelector("#back")
+var backButton = document.querySelector(".back")
 var showQuiz = document.querySelector("#quiz")
 var questionH = document.querySelector("#question")
 var answerList = document.querySelector("#answer-list")
@@ -12,6 +12,7 @@ var timeLeft = document.querySelector("#time-left")
 var hideBegin = document.querySelector(".begin")
 var highScoreButton = document.querySelector(".score")
 var hideHs = document.querySelector("#high-score-display")
+var addHs = document.querySelector("high-score-input")
 var rightWrong = document.querySelector("#right")
 
 // Global Variables
@@ -86,12 +87,13 @@ function checkAnswer (event) {
             nextQuestion ();
         }
 }
-    
 
 function nextQuestion () {
     if (currentQuestion < lastQuestion) {
         currentQuestion++;
         questionDisplay();
+    }else{
+        endGame();
     }
 }
 
@@ -103,6 +105,14 @@ function startTimer () {
             clearInterval(timer);
         }
     }, 1000)
+}
+
+function endGame () {
+    clearInterval(timer);
+    hideBegin.setAttribute("style", "display: none")
+    showQuiz.setAttribute("style", "display: none")
+    hideHs.setAttribute("style", "display: none")
+    addHs.setAttribute("style", "display: contents")
 }
 
 function highScoreDisp() {
