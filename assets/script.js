@@ -25,7 +25,7 @@ var questionList = [{
     choice2: "Quotes",
     choice3: "Square Brackets",
     choice4: "Curly Braces",
-    rightAnswer: "choice3"
+    rightAnswer: "Square Brackets"
     },
     {
     question: "What symbols are used to create a string?",
@@ -33,7 +33,7 @@ var questionList = [{
     choice2: "Square Brackets",
     choice3: "Curly Braces",
     choice4: "Quotes",
-    rightAnswer: "choice4"
+    rightAnswer: "Quotes"
     },
     {
     question: "The condition in an if/else statement is enclosed by __",
@@ -41,7 +41,7 @@ var questionList = [{
     choice2: "Quotes",
     choice3: "Curly Braces",
     choice4: "Square Brackets",
-    rightAnswer: "choice1"
+    rightAnswer: "Parentheses"
     },
     {
     question: "The symbols used that surround the function criteria are __",
@@ -49,7 +49,7 @@ var questionList = [{
     choice2: "Curly Braces",
     choice3: "Quotes",
     choice4: "Parentheses",
-    rightAnswer: "choice2"    
+    rightAnswer: "Curly Braces"    
     }
 ]
 
@@ -81,7 +81,7 @@ function checkAnswer (event) {
             nextQuestion ();
         }
         else {
-            timerCount-1500
+            timerCount = timerCount - 15;
             nextQuestion ();
         }
 }
