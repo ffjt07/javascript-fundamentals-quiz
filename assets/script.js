@@ -2,9 +2,13 @@
 var startButton = document.querySelector("#start")
 var backButton = document.querySelector("#back")
 var showQuiz = document.querySelector("#quiz")
-var timeLeft = document.querySelector("#time-left")
 var questionDisp = document.querySelector("#question")
 var answerList = document.querySelector("#answer-list")
+var choice1 = document.querySelector("#1")
+var choice2 = document.querySelector("#2")
+var choice3 = document.querySelector("#3")
+var choice4 = document.querySelector("#4")
+var timeLeft = document.querySelector("#time-left")
 var hideBegin = document.querySelector(".begin")
 var highScoreButton = document.querySelector(".score")
 var hideHs = document.querySelector("#high-score-display")
@@ -16,28 +20,28 @@ var quizAnswer;
 
 // Arrays
 var questionAnswer = [{
-    question: "What sybols are used to create an array?",
+    question: "What symbols are used to create an array?",
     choice1: "Parentheses",
     choice2: "Quotes",
     choice3: "Square Brackets",
     choice4: "Curly Braces",
-    rightAnswer: "Square Brackets"
+    rightAnswer: "3"
     },
     {
-    question: "What sybols are used to create a string?",
+    question: "What symbols are used to create a string?",
     choice1: "Parentheses",
     choice2: "Square Brackets",
     choice3: "Curly Braces",
     choice4: "Quotes",
-    rightAnswer: "Quotes"
+    rightAnswer: "4"
     },
     {
     question: "The condition in an if/else statement is enclosed by __",
-    choice1: "Square Brackets",
+    choice1: "Parentheses",
     choice2: "Quotes",
-    choice3: "Parentheses",
-    choice4: "Curly Braces",
-    rightAnswer: "Parentheses"
+    choice3: "Curly Braces",
+    choice4: "Square Brackets",
+    rightAnswer: "1"
     },
     {
     question: "The symbols used that surround the function criteria are __",
@@ -45,7 +49,7 @@ var questionAnswer = [{
     choice2: "Curly Braces",
     choice3: "Quotes",
     choice4: "Parentheses",
-    rightAnswer: "Curly Braces"    
+    rightAnswer: "2"    
     }
 ]
 // Functions
