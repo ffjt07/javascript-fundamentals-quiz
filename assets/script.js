@@ -1,4 +1,6 @@
 // Query Selectors of the sections in HTML
+var startButton = document.querySelector("#start")
+var backButton = document.querySelector("#back")
 var showQuiz = document.querySelector("#quiz")
 var timeLeft = document.querySelector("#time-left")
 var questionDisp = document.querySelector("#question")
@@ -6,7 +8,6 @@ var answerList = document.querySelector("#answer-list")
 var hideBegin = document.querySelector(".begin")
 var highScoreButton = document.querySelector(".score")
 var hideHs = document.querySelector("#high-score-display")
-var startButton = document.querySelector("#start")
 
 // Global Variables
 var timer;
@@ -71,7 +72,13 @@ function highScoreDisp() {
     hideHs.setAttribute("style", "display: contents")
 }
 
+function backStart () {
+    hideHs.setAttribute("style", "display: none")
+    showQuiz.setAttribute("style", "display: none")
+    hideBegin.setAttribute("style", "display: content")
+}
 
 // Event Listeners
 startButton.addEventListener("click", startQuiz)
 highScoreButton.addEventListener("click", highScoreDisp)
+backButton.addEventListener("click", backStart)
