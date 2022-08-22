@@ -85,6 +85,8 @@ function startTimer () {
 }
 
 function highScoreDisp() {
+    clearInterval(timer);
+    timeLeft.textContent = 0;
     hideBegin.setAttribute("style", "display: none")
     showQuiz.setAttribute("style", "display: none")
     hideHs.setAttribute("style", "display: contents")
