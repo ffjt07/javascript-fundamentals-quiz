@@ -1,19 +1,22 @@
-// Query Selectors of the sections in HTML
-var startButton = document.querySelector("#start")
-var backButton = document.querySelector(".back")
-var showQuiz = document.querySelector("#quiz")
-var questionH = document.querySelector("#question")
-var answerList = document.querySelector("#answer-list")
-var choice1 = document.querySelector("#one")
-var choice2 = document.querySelector("#two")
-var choice3 = document.querySelector("#three")
-var choice4 = document.querySelector("#four")
-var timeLeft = document.querySelector("#time-left")
-var hideBegin = document.querySelector(".begin")
-var highScoreButton = document.querySelector(".score")
-var hideHs = document.querySelector("#high-score-display")
-var addHs = document.querySelector("high-score-input")
-var rightWrong = document.querySelector("#right")
+//; Query Selectors of the sections in HTML
+var startButton = document.querySelector("#start");
+var backButton = document.querySelector(".back");
+var saveButton = document.querySelector("#save");
+var showQuiz = document.querySelector("#quiz");
+var questionH = document.querySelector("#question");
+var answerList = document.querySelector("#answer-list");
+var choice1 = document.querySelector("#one");
+var choice2 = document.querySelector("#two");
+var choice3 = document.querySelector("#three");
+var choice4 = document.querySelector("#four");
+var timeLeft = document.querySelector("#time-left");
+var initialsInput = document.querySelector("#initials");
+var hideBegin = document.querySelector(".begin");
+var highScoreButton = document.querySelector(".score");
+var hideHs = document.querySelector("#high-score-display");
+var hsList = document.querySelector("#hs-list");
+var addHs = document.querySelector("#high-score-input");
+var rightWrong = document.querySelector("#right");
 
 // Global Variables
 var timer;
@@ -101,36 +104,63 @@ function startTimer () {
     timer = setInterval(function () {
         timerCount--;
         timeLeft.textContent = timerCount;
-        if (timerCount === 0) {
+        if (timerCount <= 0) {
             clearInterval(timer);
+            endGame();
         }
     }, 1000)
 }
 
 function endGame () {
     clearInterval(timer);
-    hideBegin.setAttribute("style", "display: none")
-    showQuiz.setAttribute("style", "display: none")
-    hideHs.setAttribute("style", "display: none")
-    addHs.setAttribute("style", "display: contents")
+    hideBegin.setAttribute("style", "display: none");
+    showQuiz.setAttribute("style", "display: none");
+    hideHs.setAttribute("style", "display: none");
+    addHs.setAttribute("style", "display: contents");
 }
 
 function highScoreDisp() {
     clearInterval(timer);
     timeLeft.textContent = 0;
-    hideBegin.setAttribute("style", "display: none")
-    showQuiz.setAttribute("style", "display: none")
-    hideHs.setAttribute("style", "display: contents")
+    hideBegin.setAttribute("style", "display: none");
+    showQuiz.setAttribute("style", "display: none");
+    hideHs.setAttribute("style", "display: contents");
+    addHs.setAttribute("style", "display: none");
+
+    var initials = localStorage.getItem("initials");
+    var score = localStorage.getItem("timeScore")
+    var ul = hsList
+    var li = document.createElement("li")
+    if(!initials){
+        return;
+    }
+    else {
+        li.textContent = initials + " " + score
+        ul.appendChild(li)        
+    }
 }
 
 function backStart () {
-    hideHs.setAttribute("style", "display: none")
-    showQuiz.setAttribute("style", "display: none")
-    hideBegin.setAttribute("style", "display: content")
+    hideHs.setAttribute("style", "display: none");
+    showQuiz.setAttribute("style", "display: none");
+    hideBegin.setAttribute("style", "display: contents");
 }
 
 // Event Listeners
-startButton.addEventListener("click", startQuiz)
-highScoreButton.addEventListener("click", highScoreDisp)
-backButton.addEventListener("click", backStart)
-answerList.addEventListener("click", checkAnswer)
+startButton.addEventListener("click", startQuiz);
+highScoreButton.addEventListener("click", highScoreDisp);
+backButton.addEventListener("click", backStart);
+answerList.addEventListener("click", checkAnswer);
+saveButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var initials = initialsInput.value;
+    if (initials === "") {
+        alert("Please add initials.")
+    } else {
+        
+        localStorage.setItem("initials", initials);
+        localStorage.setItem("timeScore", timerCount);
+        highScoreDisp();
+    }
+})

@@ -63,6 +63,18 @@ button {
     display: block;
 }
 
+form {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input {
+    max-width: 255px;
+}
+
 /* Classes Here */
 .score {
     border: solid var(--buttonBord);
