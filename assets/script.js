@@ -2,6 +2,7 @@
 var startButton = document.querySelector("#start");
 var backButton = document.querySelector(".back");
 var saveButton = document.querySelector("#save");
+var resetButton = document.querySelector(".reset")
 var showQuiz = document.querySelector("#quiz");
 var questionH = document.querySelector("#question");
 var answerList = document.querySelector("#answer-list");
@@ -136,10 +137,12 @@ function scoreList() {
     var score = JSON.parse(localStorage.getItem("timeScore"));
     var ul = hsList
     var li = document.createElement("li")
-
+    li.setAttribute("class", "highscore")
     if (initials !== null && score !== null) {
         li.textContent = initials + " " + score
         ul.appendChild(li);
+    } else {
+        return;
     }
 }
 
@@ -149,11 +152,18 @@ function backStart () {
     hideBegin.setAttribute("style", "display: flex");
 }
 
+function resetHs () {
+    var liEl = document.getElementsByClassName(".highscore")
+    liEl.remove();
+    localStorage.clear();
+}
+
 // Event Listeners
 startButton.addEventListener("click", startQuiz);
 highScoreButton.addEventListener("click", highScoreDisp);
 backButton.addEventListener("click", backStart);
 answerList.addEventListener("click", checkAnswer);
+resetButton.addEventListener("click", resetHs);
 saveButton.addEventListener("click", function (event) {
     event.preventDefault();
     event.stopPropagation()
