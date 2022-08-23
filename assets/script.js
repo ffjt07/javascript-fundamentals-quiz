@@ -87,10 +87,14 @@ function checkAnswer (event) {
     if (event.target.matches("button"))
 
         if (event.target.textContent == questionList[currentQuestion].rightAnswer) {
+            rightWrong.setAttribute("style", "color: green")
+            rightWrong.textContent = "Right!"
             nextQuestion ();
         }
         else {
             timerCount = timerCount - 15;
+            rightWrong.setAttribute("style", "color: red")
+            rightWrong.textContent = "Wrong!"
             nextQuestion ();
         }
 }
@@ -118,6 +122,7 @@ function startTimer () {
 function endGame () {
     clearInterval(timer);
     timeLeft.textContent = timerCount
+    rightWrong.textContent = ""
     hideBegin.setAttribute("style", "display: none");
     showQuiz.setAttribute("style", "display: none");
     hideHs.setAttribute("style", "display: none");
