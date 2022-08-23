@@ -117,6 +117,7 @@ function startTimer () {
 
 function endGame () {
     clearInterval(timer);
+    timeLeft.textContent = timerCount
     hideBegin.setAttribute("style", "display: none");
     showQuiz.setAttribute("style", "display: none");
     hideHs.setAttribute("style", "display: none");
