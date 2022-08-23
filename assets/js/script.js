@@ -68,6 +68,7 @@ function startQuiz () {
     currentQuestion = 0;
     timerCount = 75;
     timeLeft.textContent = timerCount
+    initialsInput.value = ""
     hideBegin.setAttribute("style", "display: none");
     startTimer();
     questionDisplay();
