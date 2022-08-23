@@ -17,7 +17,6 @@ var highScoreButton = document.querySelector(".score");
 var hideHs = document.querySelector("#high-score-display");
 var hsList = document.querySelector("#hs-list");
 var addHs = document.querySelector("#high-score-input");
-var header = document.querySelector("header")
 var rightWrong = document.querySelector("#right");
 
 // Global Variables
