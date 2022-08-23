@@ -10,4 +10,4 @@ https://ffjt07.github.io/javascript-fundamentals-quiz/
 https://github.com/ffjt07/javascript-fundamentals-quiz
 
 ## Preview
-![JavaScript Fundamentals Quiz Preview]()
+![JavaScript Fundamentals Quiz Preview](./assets/images/javascript-quiz-preview.gif)
