@@ -16,6 +16,7 @@ var highScoreButton = document.querySelector(".score");
 var hideHs = document.querySelector("#high-score-display");
 var hsList = document.querySelector("#hs-list");
 var addHs = document.querySelector("#high-score-input");
+var header = document.querySelector("header")
 var rightWrong = document.querySelector("#right");
 
 // Global Variables
@@ -62,6 +63,8 @@ var lastQuestion = questionList.length - 1;
 var currentQuestion = 0;
 // Functions
 function startQuiz () {
+    lastQuestion = questionList.length - 1;
+    currentQuestion = 0;
     timerCount = 75;
     timeLeft.textContent = timerCount
     hideBegin.setAttribute("style", "display: none");
@@ -131,12 +134,12 @@ function highScoreDisp() {
     var score = localStorage.getItem("timeScore")
     var ul = hsList
     var li = document.createElement("li")
-    if(!initials){
-        return;
-    }
-    else {
+
+    if (initials < 1) {
+        return
+    } else {
         li.textContent = initials + " " + score
-        ul.appendChild(li)        
+        ul.appendChild(li);
     }
 }
 
@@ -163,4 +166,4 @@ saveButton.addEventListener("click", function (event) {
         localStorage.setItem("timeScore", timerCount);
         highScoreDisp();
     }
-})
+});
