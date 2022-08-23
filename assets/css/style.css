@@ -22,16 +22,17 @@ body {
 }
 
 header {
-    display: flex;
+    display:flex;
     justify-content: space-between;
     font-size: 18px;
     margin: var(--marginBase);
 }
 
 section {
+    display: flex;
     margin: 0 auto;
     width: 66%;
-    justify-content: center;
+    flex-direction: column;
 }
 
 h2 {

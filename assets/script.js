@@ -95,7 +95,7 @@ function checkAnswer (event) {
 }
 
 function nextQuestion () {
-    if (currentQuestion < lastQuestion) {
+    if (currentQuestion < lastQuestion && timerCount > 0) {
         currentQuestion++;
         questionDisplay();
     }else{
@@ -129,15 +129,15 @@ function highScoreDisp() {
     showQuiz.setAttribute("style", "display: none");
     hideHs.setAttribute("style", "display: contents");
     addHs.setAttribute("style", "display: none");
+}
 
-    var initials = localStorage.getItem("initials");
-    var score = localStorage.getItem("timeScore")
+function scoreList() {
+    var initials = JSON.parse(localStorage.getItem("initials"));
+    var score = JSON.parse(localStorage.getItem("timeScore"));
     var ul = hsList
     var li = document.createElement("li")
 
-    if (initials < 1) {
-        return
-    } else {
+    if (initials !== null && score !== null) {
         li.textContent = initials + " " + score
         ul.appendChild(li);
     }
@@ -146,7 +146,7 @@ function highScoreDisp() {
 function backStart () {
     hideHs.setAttribute("style", "display: none");
     showQuiz.setAttribute("style", "display: none");
-    hideBegin.setAttribute("style", "display: contents");
+    hideBegin.setAttribute("style", "display: flex");
 }
 
 // Event Listeners
@@ -156,14 +156,16 @@ backButton.addEventListener("click", backStart);
 answerList.addEventListener("click", checkAnswer);
 saveButton.addEventListener("click", function (event) {
     event.preventDefault();
+    event.stopPropagation()
 
     var initials = initialsInput.value;
     if (initials === "") {
         alert("Please add initials.")
     } else {
         
-        localStorage.setItem("initials", initials);
-        localStorage.setItem("timeScore", timerCount);
+        localStorage.setItem("initials", JSON.stringify(initials));
+        localStorage.setItem("timeScore", JSON.stringify(timerCount));
         highScoreDisp();
+        scoreList();
     }
 });
