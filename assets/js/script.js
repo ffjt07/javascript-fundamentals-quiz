@@ -153,9 +153,6 @@ function localDisplay () {
     if (initials !== null) {
         return {initials, score}
     }
-       // initialsStore = initials;
-       // scoreStore = score;
-    //scoreList();
 }
 
 function scoreList() {
