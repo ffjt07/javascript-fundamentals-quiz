@@ -139,7 +139,7 @@ function scoreList() {
     var li = document.createElement("li")
     li.setAttribute("class", "highscore")
     if (initials !== null && score !== null) {
-        li.textContent = initials + " " + score
+        li.textContent = initials + " " + score;
         ul.appendChild(li);
     } else {
         return;
@@ -153,8 +153,7 @@ function backStart () {
 }
 
 function resetHs () {
-    var liEl = document.getElementsByClassName(".highscore")
-    liEl.remove();
+    hsList.innerHTML = ""
     localStorage.clear();
 }
 
