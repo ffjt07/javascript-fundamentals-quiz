@@ -23,7 +23,6 @@ var rightWrong = document.querySelector("#right");
 // Global Variables
 var timer;
 var timerCount;
-var quizAnswer;
 
 // Arrays
 var questionList = [{
@@ -62,6 +61,7 @@ var questionList = [{
 
 var lastQuestion = questionList.length - 1;
 var currentQuestion = 0;
+
 // Functions
 function startQuiz () {
     lastQuestion = questionList.length - 1;
