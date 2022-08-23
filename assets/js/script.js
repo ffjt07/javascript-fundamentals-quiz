@@ -22,7 +22,8 @@ var rightWrong = document.querySelector("#right");
 // Global Variables
 var timer;
 var timerCount;
-
+var initialsStore = []
+var scoreStore = []
 // Arrays
 var questionList = [{
     question: "What symbols are used to create an array?",
@@ -67,7 +68,7 @@ function startQuiz () {
     currentQuestion = 0;
     timerCount = 75;
     timeLeft.textContent = timerCount
-    initialsInput.value = ""
+    initialsInput.value = "";
     hideBegin.setAttribute("style", "display: none");
     startTimer();
     questionDisplay();
@@ -136,19 +137,36 @@ function highScoreDisp() {
     showQuiz.setAttribute("style", "display: none");
     hideHs.setAttribute("style", "display: contents");
     addHs.setAttribute("style", "display: none");
+    localDisplay();
+}
+
+function highScoreStore () {
+    localStorage.setItem("initials", JSON.stringify(initialsStore));
+    localStorage.setItem("timeScore", JSON.stringify(scoreStore));
+}
+
+function localDisplay () {
+    var initials = JSON.parse(localStorage.getItem("initials"));
+    var score = JSON.parse(localStorage.getItem("timescore"));
+    if (initials !== null && score !== null) {
+        initialsStore = initials;
+        scoreStore = score;
+    }
+    scoreList();
 }
 
 function scoreList() {
-    var initials = JSON.parse(localStorage.getItem("initials"));
-    var score = JSON.parse(localStorage.getItem("timeScore"));
-    var ul = hsList
-    var li = document.createElement("li")
-    li.setAttribute("class", "highscore")
-    if (initials !== null && score !== null) {
+    initialsStore.textContent = "";
+    scoreStore.textContent = "";
+    hsList.innerHTML = "";
+    for (var i = 0; i < initialsStore.length; i++) {
+        var initials = initialsStore[i]
+        var score = scoreStore[i];
+        var ul = hsList
+        var li = document.createElement("li");
         li.textContent = initials + " " + score;
+        li.setAttribute("data-index", i);
         ul.appendChild(li);
-    } else {
-        return;
     }
 }
 
@@ -159,7 +177,9 @@ function backStart () {
 }
 
 function resetHs () {
-    hsList.innerHTML = ""
+    hsList.innerHTML = "";
+    initialsStore = [];
+    scoreStore = [];
     localStorage.clear();
 }
 
@@ -171,16 +191,18 @@ answerList.addEventListener("click", checkAnswer);
 resetButton.addEventListener("click", resetHs);
 saveButton.addEventListener("click", function (event) {
     event.preventDefault();
-    event.stopPropagation()
-
-    var initials = initialsInput.value;
+    event.stopPropagation();
+    
+    var initials = initialsInput.value.trim();
     if (initials === "") {
         alert("Please add initials.")
     } else {
-        
-        localStorage.setItem("initials", JSON.stringify(initials));
-        localStorage.setItem("timeScore", JSON.stringify(timerCount));
-        highScoreDisp();
+        initialsStore.push(initials);
+        scoreStore.push(timerCount);
+        console.log(initialsStore.length)
+        highScoreStore();
+        highScoreDisp()
         scoreList();
     }
 });
+localDisplay();
