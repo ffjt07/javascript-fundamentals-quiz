@@ -137,7 +137,7 @@ function highScoreDisp() {
     showQuiz.setAttribute("style", "display: none");
     hideHs.setAttribute("style", "display: contents");
     addHs.setAttribute("style", "display: none");
-    localDisplay();
+    scoreList();
 }
 
 function highScoreStore () {
@@ -146,27 +146,31 @@ function highScoreStore () {
 }
 
 function localDisplay () {
+    console.log("You made it")
     var initials = JSON.parse(localStorage.getItem("initials"));
-    var score = JSON.parse(localStorage.getItem("timescore"));
-    if (initials !== null && score !== null) {
-        initialsStore = initials;
-        scoreStore = score;
+    var score = JSON.parse(localStorage.getItem("timeScore"));
+    console.log(initials, score);
+    if (initials !== null) {
+        return {initials, score}
     }
-    scoreList();
+       // initialsStore = initials;
+       // scoreStore = score;
+    //scoreList();
 }
 
 function scoreList() {
-    initialsStore.textContent = "";
-    scoreStore.textContent = "";
+    var arrays = localDisplay();
+    console.log(arrays);
     hsList.innerHTML = "";
-    for (var i = 0; i < initialsStore.length; i++) {
-        var initials = initialsStore[i]
-        var score = scoreStore[i];
+    for (var i = 0; i < arrays?.initials.length; i++) {
+        var initials = arrays?.initials[i]
+        var score = arrays?.score[i];
         var ul = hsList
         var li = document.createElement("li");
         li.textContent = initials + " " + score;
         li.setAttribute("data-index", i);
         ul.appendChild(li);
+        console.log("looped")
     }
 }
 
@@ -201,8 +205,7 @@ saveButton.addEventListener("click", function (event) {
         scoreStore.push(timerCount);
         console.log(initialsStore.length)
         highScoreStore();
-        highScoreDisp()
-        scoreList();
+        highScoreDisp();
     }
 });
-localDisplay();
+
