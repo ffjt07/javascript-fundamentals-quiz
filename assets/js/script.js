@@ -1,4 +1,4 @@
-//; Query Selectors of the sections in HTML
+// Query Selectors of the HTML
 var startButton = document.querySelector("#start");
 var backButton = document.querySelector(".back");
 var saveButton = document.querySelector("#save");
