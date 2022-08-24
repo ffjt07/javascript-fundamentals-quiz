@@ -146,7 +146,7 @@ function highScoreStore () {
 }
 
 function localDisplay () {
-    console.log("You made it")
+    console.log("You made it");
     var initials = JSON.parse(localStorage.getItem("initials"));
     var score = JSON.parse(localStorage.getItem("timeScore"));
     console.log(initials, score);
@@ -171,7 +171,8 @@ function scoreList() {
     }
 }
 
-function backStart () {
+function backStart (event) {
+    event.stopPropagation();
     hideHs.setAttribute("style", "display: none");
     showQuiz.setAttribute("style", "display: none");
     hideBegin.setAttribute("style", "display: flex");
